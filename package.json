@@ -2,7 +2,7 @@
   "name": "react-app",
   "version": "0.1.0",
   "description": "react-app",
-  "main": "index.js",
+  "main": "config.ru",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

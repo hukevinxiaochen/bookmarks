@@ -1,4 +1,5 @@
 require "sinatra/base"
+require 'liquid'
 
 class Bookmarks < Sinatra::Base
   get '/' do
@@ -6,6 +7,10 @@ class Bookmarks < Sinatra::Base
     convert_markdown_to_html = "pandoc data/bookmarks.markdown -o data/output.html"
     system(convert_markdown_to_html)
     IO.read("data/output.html")
+  end
+
+  get '/react' do
+    liquid :index
   end
 end
 

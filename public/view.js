@@ -9,8 +9,8 @@ import ReactDOM from "react-dom"
 
 // Render
 ReactDOM.render((
-  <div>
-    <h1>Hello World</h1>
-  </div>
-), document.getElementById('app'));
+  <p>
+    <em>React components to come soon!</em>
+  </p>
+  ), document.getElementById('app'));
 

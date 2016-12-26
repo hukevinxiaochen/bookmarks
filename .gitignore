@@ -3,4 +3,6 @@ data
 .bundle
 bundle
 
+# node packages
+/node_modules
 

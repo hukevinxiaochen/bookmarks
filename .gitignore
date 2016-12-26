@@ -1,8 +1,6 @@
 data
-
 .bundle
 bundle
-
 public/app-bundle.js
 
 # node packages

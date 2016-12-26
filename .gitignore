@@ -3,6 +3,8 @@ data
 .bundle
 bundle
 
+app-bundle.js
+
 # node packages
 /node_modules
 

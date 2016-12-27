@@ -16,12 +16,35 @@
     <div id="app"></div>
     <hr>
     <div>
+      <p>Are we authenticated?: {{ authenticated }}</p>
+    </div>
+    <hr>
+
+    {% comment %}
+    Give the option to login.
+    {% endcomment %}
+
+    {% if authenticated == false  %}
+      <div>
+        <a href="/login">Login</a>
+      </div>
+      <hr>
+    {% endif %}
+    
+    <div>
       {{ bookmarks }}
     </div>
 
     <!-- SCRIPTS  -->
-    <script src="app-bundle.js">
-    </script>
+
+    {% comment %}
+    Do not serve the sync button unless we are authenticated.
+    {% endcomment %}
+
+    {% if authenticated %}
+      <script src="app-bundle.js">
+      </script>
+    {% endif %}
 
   </body>
 </html>

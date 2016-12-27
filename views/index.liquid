@@ -15,18 +15,14 @@
   <body>
     <div id="app"></div>
     <hr>
-    <div>
-      <p>Are we authenticated?: {{ authenticated }}</p>
-    </div>
-    <hr>
 
     {% comment %}
-    Give the option to login.
+    Let us know that we are not authenticated and cannot be trusted. 
     {% endcomment %}
 
     {% if authenticated == false  %}
       <div>
-        <a href="/login">Login</a>
+        <p>"Toto, I don't think we're in Kansas anymore."</p>
       </div>
       <hr>
     {% endif %}

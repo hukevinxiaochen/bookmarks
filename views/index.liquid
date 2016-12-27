@@ -13,34 +13,11 @@
 
   </head>
   <body>
-    <div id="app"></div>
-    <hr>
-
-    {% comment %}
-    Let us know that we are not authenticated and cannot be trusted. 
-    {% endcomment %}
-
-    {% if authenticated == false  %}
-      <div>
-        <p>"Toto, I don't think we're in Kansas anymore."</p>
-      </div>
-      <hr>
-    {% endif %}
     
     <div>
       {{ bookmarks }}
     </div>
 
     <!-- SCRIPTS  -->
-
-    {% comment %}
-    Do not serve the sync button unless we are authenticated.
-    {% endcomment %}
-
-    {% if authenticated %}
-      <script src="app-bundle.js">
-      </script>
-    {% endif %}
-
   </body>
 </html>

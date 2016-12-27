@@ -9,13 +9,7 @@ ruby "2.1.5"
 gem 'rack'
 gem 'sinatra', '1.4.7'
 
-# ORM
-gem 'sequel', '4.41.0'
-
 # templating
 gem 'liquid'
 
-# token auth
-gem 'jwt'
-gem 'json'
 

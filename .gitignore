@@ -6,3 +6,5 @@ public/app-bundle.js
 # node packages
 /node_modules
 
+# system files
+*.swp

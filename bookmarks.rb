@@ -1,7 +1,8 @@
 require "bundler/setup"
 
 require "sinatra/base"
-require "liquid"
+require "rdiscount"
+require "haml"
 
 #----------
 # Bookmarks, the modular Sinatra app
@@ -28,14 +29,12 @@ class Bookmarks < Sinatra::Base
   get "/" do
     
     # Enjoy writing in markdown, viewing in a browser.
-    # - Why not use pandoc?
-    convert_markdown_to_html = "pandoc data/bookmarks.markdown -o data/output.html"
-    system(convert_markdown_to_html)
-
+    md = RDiscount.new(File.read("data/bookmarks.markdown"))
+    
     # Sinatra understands and serves strings.
-    bookmarks = IO.read("data/output.html") 
+    bookmarks = md.to_html 
 
-    liquid :index, :locals => { :bookmarks => bookmarks, 
+    haml :index, :locals => { :bookmarks => bookmarks, 
                                 :authenticated => @authenticated, 
                                 :host => request.host }
   

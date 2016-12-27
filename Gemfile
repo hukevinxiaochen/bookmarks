@@ -10,6 +10,7 @@ gem 'rack'
 gem 'sinatra', '1.4.7'
 
 # templating
+gem 'rdiscount'
 gem 'liquid'
-
+gem 'haml'
 

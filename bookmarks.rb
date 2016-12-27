@@ -31,16 +31,14 @@ class Bookmarks < Sinatra::Base
   #
   # - before filters
   ###helpers Auth
-
-  #----------
+  ##----------
   # before filters
   #
   # I really want to know. Are you logged in?
-  #----------
-  before do
-    request.host == "localhost" ? @authenticated = true : @authenticated = false
-
-    # With the help of Auth#has_valid_token?
+  #
+  # before do
+  #
+  ## With the help of Auth#has_valid_token?
     # We ask, "no really, are you logged in?"
     ## def logged_in?(cookies) 
     ##   return is_valid_token?(cookies["access_token"])
@@ -53,7 +51,12 @@ class Bookmarks < Sinatra::Base
     # Our template is going to have some conditional logic, as follows:
     # - if @authenticated == true, then include the Sync Button.
     # - if @authenticated != true, then don't serve that!
-    ##@authenticated = logged_in?(request.cookies) 
+    ##@authenticated = logged_in?(request.cookies)
+  # end
+  #----------
+   
+  before do
+    request.host == "localhost" ? @authenticated = true : @authenticated = false
   end
 
   #----------
@@ -62,6 +65,7 @@ class Bookmarks < Sinatra::Base
   # Provide some endpoints folks. Handle requests.
   #----------
   get "/" do
+    
     # Enjoy writing in markdown, viewing in a browser.
     # - Why not use pandoc?
     convert_markdown_to_html = "pandoc data/bookmarks.markdown -o data/output.html"
@@ -73,7 +77,9 @@ class Bookmarks < Sinatra::Base
     liquid :index, :locals => { :bookmarks => bookmarks, 
                                 :authenticated => @authenticated, 
                                 :host => request.host }
+  
   end
+end
 
   # get "/login" do
   #   token = get_valid_token
@@ -91,5 +97,4 @@ class Bookmarks < Sinatra::Base
     # actions specified here.
   #  "For trusted people only."
   # end
-end
 

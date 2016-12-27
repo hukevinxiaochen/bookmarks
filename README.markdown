@@ -6,6 +6,11 @@
 
 `rake bundle_up`
 
+Install [pandoc](http://www.pandoc.org/installing.html).
+
+`mkdir data`
+
+`touch data/bookmarks.markdown`
 # Tests
 
 TODO:

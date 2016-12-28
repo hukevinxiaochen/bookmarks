@@ -6,7 +6,7 @@ task :push_data do
 end
 
 task :pull_data do
-  sh "rsync -av #{ENV['BOOKMARKS_REMOTE_REPO_DIR']}"
+  sh "rsync -av #{ENV['BOOKMARKS_REMOTE_REPO_DIR']}/data/ data"
 end
 
 task :bundle_up do

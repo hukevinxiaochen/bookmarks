@@ -30,8 +30,6 @@ class Bookmarks < Sinatra::Base
     
     # Enjoy writing in markdown, viewing in a browser.
     md = RDiscount.new(File.read("data/bookmarks.markdown"))
-    
-    # Sinatra understands and serves strings.
     bookmarks = md.to_html 
 
     haml :index, :locals => { :bookmarks => bookmarks, 
